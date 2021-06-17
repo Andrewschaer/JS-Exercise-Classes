@@ -143,8 +143,8 @@ class Airplane {
    demo(subject){
      return `Today we are learning about ${subject}`;
    }
-   grade(student, subject){
-     return `${student} receives a perfect score on ${subject}`;
+   grade(stuObj, subject){
+     return `${stuObj.name} receives a perfect score on ${subject}`;
    }
  }
   /*
@@ -193,8 +193,18 @@ class Airplane {
           + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
           + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
   */
- class ProjectManager {
-     
+ class ProjectManager extends Instructor{
+     constructor(pmObj){
+       super(pmObj);
+       this.gradClassName = pmObj.gradClassName;
+       this.favInstructor = pmObj.favInstructor;
+     }
+     standUp(channel){
+       return `${this.name} announces to ${channel}, @channel standy times!`;
+     }
+     debugsCode(studObj, subject){
+       return `${this.name} debugs ${studObj.name}'s code on ${subject}`;
+     }
  }
   /*
     STRETCH PROBLEM (no tests!)
